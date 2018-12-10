@@ -1,0 +1,46 @@
+
+                                  
+  Command "make" is not defined.  
+                                  
+  Did you mean one of these?      
+      make:auth                   
+      make:command                
+      make:controller             
+      make:event                  
+      make:exception              
+      make:factory                
+      make:job                    
+      make:listener               
+      make:mail                   
+      make:middleware             
+      make:migration              
+      make:model                  
+      make:notification           
+      make:policy                 
+      make:provider               
+      make:request                
+      make:resource               
+      make:rule                   
+      make:seeder                 
+      make:test                   
+      module:make                 
+      module:make-command         
+      module:make-controller      
+      module:make-event           
+      module:make-factory         
+      module:make-job             
+      module:make-listener        
+      module:make-mail            
+      module:make-middleware      
+      module:make-migration       
+      module:make-model           
+      module:make-notification    
+      module:make-policy          
+      module:make-provider        
+      module:make-request         
+      module:make-resource        
+      module:make-rule            
+      module:make-seed            
+      module:make-test            
+                                  
+
