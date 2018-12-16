@@ -26,12 +26,20 @@ class ClienteController extends Controller
 
         $cliente = Cliente::salvar($request);
 
+        if($cliente instanceof Cliente){
+            \Session::flash('alerta', array(
+                'class' =>  'success',
+                'mensagem' => 'Cliente salvo com sucesso!'
+            ));
+            return redirect()->route('clientes.editar', $cliente->id);
+        }
+
         \Session::flash('alerta', array(
-            'class' =>  'success',
-            'mensagem' => 'Cliente salvo com sucesso!'
+            'class' =>  'danger',
+            'mensagem' => 'Cliente ja existe.'
         ));
 
-        return redirect()->route('clientes.editar', $cliente->id);
+        return redirect()->route('clientes.inserir');
     }
 
     public function atualizar(Request $request, Cliente $cliente){

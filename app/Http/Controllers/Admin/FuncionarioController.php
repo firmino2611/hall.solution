@@ -25,6 +25,14 @@ class FuncionarioController extends Controller
     }
 
     public function salvar(Request $request){
+        $u = Usuario::where('email', $request->email)->get();
+        if(count($u)){
+            \Session::flash('alerta', array(
+                'class' =>  'danger',
+                'mensagem' => 'Funcionário ja existe com esse email ' . $request->email 
+            ));
+            return redirect()->route('funcionarios.inserir');
+        }
         $usuario = Usuario::salvar($request);
 
         \Session::flash('alerta', array(

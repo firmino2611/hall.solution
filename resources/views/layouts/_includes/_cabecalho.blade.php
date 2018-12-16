@@ -1,4 +1,4 @@
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="background: #337ab7">
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="background: #701f84">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
@@ -8,9 +8,8 @@
             </button>
             <a class="navbar-brand" href="#">Hall Solution</a>
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                    <em class="fa fa-envelope"></em><span class="label label-danger">15</span>
-                </a>
+                {{-- <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <em class="fa fa-envelope"></em><span class="label label-danger">15</span></a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
@@ -38,10 +37,9 @@
                             </a></div>
                         </li>
                     </ul>
-                </li>
-                <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                    <em class="fa fa-bell"></em><span class="label label-info">5</span>
-                </a>
+                </li> --}}
+                {{-- <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <em class="fa fa-bell"></em><span class="label label-info">5</span></a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li><a href="#">
                             <div><em class="fa fa-envelope"></em> 1 New Message
@@ -58,7 +56,7 @@
                                 <span class="pull-right text-muted small">4 mins ago</span></div>
                         </a></li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div><!-- /.container-fluid -->

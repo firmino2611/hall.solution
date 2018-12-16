@@ -16,8 +16,10 @@ Route::get('/login', ['as'=>'login', 'uses'=>'Admin\UsuarioController@login']);
 Route::post('/autenticar', ['as'=>'autenticar', 'uses'=>'Admin\UsuarioController@autenticar']);
 
 Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
-	
-	Route::get('/', ['as'=>'admin.index', 'uses'=>'Admin\UsuarioController@index']);
+    
+    Route::get('configurações', 'Admin\ConfiguracaoController@editar')->name('config.editar');
+    
+    Route::get('/', ['as'=>'admin.index', 'uses'=>'Admin\UsuarioController@index']);
 	Route::get('/logout', ['as'=>'admin.logout', 'uses'=>'Admin\UsuarioController@logout']);
 
 	Route::group(['prefix' => 'fornecedores'], function(){
@@ -84,6 +86,22 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function(){
         Route::get('{compra}/editar', 'Admin\CompraController@editar')->name('compra.editar');
         Route::put('{compra}/atualizar', 'Admin\CompraController@atualizar')->name('compra.atualizar');
         Route::post('/salvar', 'Admin\CompraController@salvar')->name('compra.salvar');
+    });
+
+    Route::group(['prefix' => 'agendamentos'], function (){
+        Route::get('inserir-novo', 'Admin\AgendamentoController@inserir')->name('agendamento.inserir');
+        Route::get('listar', 'Admin\AgendamentoController@listar')->name('agendamento.listar');
+        Route::get('{agendamento}/editar', 'Admin\AgendamentoController@editar')->name('agendamento.editar');
+        Route::put('{agendamento}/atualizar', 'Admin\AgendamentoController@atualizar')->name('agendamento.atualizar');
+        Route::post('/salvar', 'Admin\AgendamentoController@salvar')->name('agendamento.salvar');
+    });
+
+    Route::group(['prefix' => 'empresas'], function (){
+        Route::get('inserir-novo', 'Admin\EmpresaController@inserir')->name('empresas.inserir');
+        Route::get('listar', 'Admin\EmpresaController@listar')->name('empresas.listar');
+        Route::get('{empresa}/editar', 'Admin\EmpresaController@editar')->name('empresas.editar');
+        Route::put('{empresa}/atualizar', 'Admin\EmpresaController@atualizar')->name('empresas.atualizar');
+        Route::post('/salvar', 'Admin\EmpresaController@salvar')->name('empresas.salvar');
     });
 });
 

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'BDMG'),
+    'name' => env('APP_NAME', 'Hall Solution'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', true),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://apppinventorbrasil.tech'),
+    'url' => env('APP_URL', 'http://hall.appinventorbrasil.tech'),
 
     /*
     |--------------------------------------------------------------------------

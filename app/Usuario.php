@@ -17,7 +17,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'senha', 'empresa_id'
+        'nome', 'email', 'senha', 'empresa_id', 'cpf', 'data_admissai'
     ];
 
     /**
@@ -50,7 +50,9 @@ class Usuario extends Authenticatable
             'nome' => $request->nome,
             'email' => $request->email,
             'senha' => bcrypt($request->senha),
-            'empresa_id' => Auth::user()->empresa->id
+            'empresa_id' => Auth::user()->empresa->id,
+            'cpf' => $request->cpf,
+            'data_admissoa' => $request->data_admissoa,
         ));
         $usuario->funcionario()->create(array(
             'usuario_id' => $usuario->id,
@@ -63,6 +65,7 @@ class Usuario extends Authenticatable
         $funcionario->update(array(
             'nome' => $request->nome,
             'email' => $request->email,
+            'cpf' => $request->cpf,
         ));
         return $funcionario;
     }

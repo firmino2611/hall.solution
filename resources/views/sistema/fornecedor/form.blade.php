@@ -28,7 +28,10 @@
                             <label for="">Nome</label>
                             <input name="nome" value="{{ $fornecedor->nome ?? '' }}" type="text" class="form-control input-sm">
                         </div>
-
+                        <div class="form-group">
+                            <label for="">CNPJ</label>
+                            <input name="cnpj" value="{{ $fornecedor->cnpj ?? '' }}" type="text" class="form-control input-sm">
+                        </div>
 
                         <div class="pull-right">
                             <button class="btn btn-primary">

@@ -34,6 +34,15 @@
                                 <label for="">Email</label>
                                 <input required name="email" value="{{ $cliente->email ?? '' }}" type="email" class="form-control input-sm">
                             </div>
+                            <div class="form-group has-error">
+                                <label for="">Celular</label>
+                                <input required name="celular" value="{{ $cliente->celular ?? '' }}" type="text" class="form-control input-sm">
+                            </div>
+                            <div class="form-group has-error">
+                                <label for="">CPF</label>
+                                <input required name="cpf" value="{{ $cliente->cpf ?? '' }}" type="text" class="form-control input-sm">
+                            </div>
+
                             <hr>
                             <h4>Endereço</h4>
                             <div class="row">

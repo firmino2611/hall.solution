@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fornecedor extends Model
 {
     protected $table = 'fornecedores';
-    protected $fillable = ['nome', 'empresa_id'];
+    protected $fillable = ['nome', 'empresa_id', 'cnpj'];
 
     public function empresa(){
         return $this->belongsTo(\App\Empresa::class);

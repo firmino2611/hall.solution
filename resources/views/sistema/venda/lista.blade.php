@@ -11,7 +11,7 @@
 @section('migalha')
     @component('components.breadcrumbs', [
         'itens' => [
-            ['valor' => 'Serviços', 'ativo' => true],
+            ['valor' => 'Vendas', 'ativo' => true],
         ]
     ])
     @endcomponent

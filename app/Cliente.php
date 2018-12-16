@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Cliente extends Model
 {
     protected $table = 'clientes';
-    protected $fillable = [  'nome', 'email', 'estado', 'cidade', 'bairro', 'rua', 'numero', 'complemento', 'empresa_id',];
+    protected $fillable = [  'nome', 'email', 'estado', 'cidade', 'bairro', 'rua', 'numero', 'complemento', 'empresa_id', 'celular', 'cpf'];
 
     /**
      * Retorna a empresa que o cliente pertence
@@ -19,9 +19,15 @@ class Cliente extends Model
     }
 
     public static function salvar($request){
-        $cliente = Cliente::create($request->all());
+        $clientes = Cliente::where('email', $request->email)->get();
 
-        return $cliente;
+        if(!count($clientes)){
+            $cliente = Cliente::create($request->all());
+
+            return $cliente;
+        }
+
+        return $clientes;
     }
 
     public static function atualizar($cliente, $request){

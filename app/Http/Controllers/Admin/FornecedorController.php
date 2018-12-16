@@ -25,7 +25,8 @@ class FornecedorController extends Controller
     public function salvar(Request $request){
         $fornecedor = Fornecedor::create(array(
             'nome' => $request->nome,
-            'empresa_id' => Auth::user()->empresa->id
+            'empresa_id' => Auth::user()->empresa->id,
+            'cnpj' => $request->cnpj
         ));
 
         \Session::flash('alerta', array(
@@ -39,7 +40,8 @@ class FornecedorController extends Controller
     public function atualizar(Request $request, Fornecedor $fornecedor){
         $fornecedor->update(array(
             'nome' => $request->nome,
-            'empresa_id' => Auth::user()->empresa->id
+            'empresa_id' => Auth::user()->empresa->id,
+            'cnpj' => $request->cnpj
         ));
 
         \Session::flash('alerta', array(

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
     protected $table = 'empresas';
-    protected $fillable = ['nome', 'resumo', 'documento', 'pessoa'];
+    protected $fillable = ['nome', 'resumo', 'documento', 'pessoa', 'cnpj', 'email'];
 
     /**
      * Retorna os usuarios de uma empresa
@@ -62,7 +62,7 @@ class Empresa extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function agendamentos(){
-        return $this->hasMany(\App\Agendamento::class);
+        return $this->hasMany(\App\Agendamento::class, 'empresa_id');
     }
 
     public function vendas(){

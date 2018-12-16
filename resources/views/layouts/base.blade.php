@@ -8,12 +8,34 @@
         <link href="{{ asset('public/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="{{ asset('public/css/datepicker3.css') }}" rel="stylesheet">
         <link href="{{ asset('public/css/styles.css') }}" rel="stylesheet">
-        
+        <link rel="shortcut icon" href="{{ asset('public/img/logo_favicon.png') }}" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
         <!--Custom Font-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+       
+        
         <style>
-            .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus{ background: #337ab7}
+            .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover
+            , .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus{ background: #701f84}
+
+            .sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover{
+                background: #c52494
+            }
+
+            .btn-primary{
+                background: #701f84;
+                border: none
+            }
+            .btn-primary:hover{
+                background: #c52494
+            }
+
+            .btn{
+                box-shadow: 4px 4px 4px rgba(0,0,0,.4)
+            }
+            .btn:hover{
+                box-shadow: none
+            }
 
         </style>
 
@@ -69,6 +91,9 @@
         <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('public/js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('public/js/custom.js') }}"></script>
+        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        
         <script>
             $(function () {
                 setTimeout(function () {
@@ -88,6 +113,27 @@
                     else
                         $(this).removeClass('has-error')
                 })
+
+                $('table').DataTable({
+                    "columnDefs": [
+                        {"orderable": true}
+                    ],
+                    "order": [[0, 'DESC']],
+                    "language": {
+                        "zeroRecords": "Nenhuma informação encontrada",
+                        "infoEmpty": "Mostrando 0 resultados encontrados",
+                        "infoFiltered":   "(filtro aplicado nas _MAX_ entradas)",
+                        "info":  "Mostrando _START_ a _END_ do total de _TOTAL_ encontradas",
+                        "search": "Pesquisa:",
+                        "lengthMenu":     "Mostrar _MENU_ resultados",
+                        "paginate": {
+                            "first":      "First",
+                            "last":       "Last",
+                            "next":       "Próximo",
+                            "previous":   "Anterior"
+                        },
+                    }
+                });
 
             })
         </script>

@@ -34,7 +34,20 @@
                                     <label for="">Email</label>
                                     <input required name="email" value="{{ $funcionario->email ?? '' }}" type="email" class="form-control input-sm">
                                 </div>
+
+                                <div class="form-group col-md-6 has-error">
+                                    <label for="">CPF</label>
+                                    <input required name="cpf" value="{{ $funcionario->cpf ?? '' }}" type="text" class="form-control input-sm">
+                                </div>
+
+                                @role('admin')
+                                <div class="form-group col-md-6 has-error">
+                                    <label for="">Data admissão</label>
+                                    <input required name="data_admissao" value="{{ $funcionario->data_admissao ?? '' }}" type="date" class="form-control input-sm">
+                                </div>
+                                @endrole
                             </div>
+
                             <div class="form-group has-error">
                                 <label for="">Senha (provisória)</label>
                                 @if(isset($funcionario))
@@ -49,7 +62,8 @@
                                     {{  isset($funcionario) ? 'ATUALIZAR' : 'SALVAR' }}</button>
                             </div>
                         </form>
-                            @if(isset($funcionario))
+
+                            @if(isset($funcionario) and Auth::user()->hasRole('admin'))
                             <br>
                             <hr>
                                 <h4>Horários de trabalho</h4>
@@ -95,31 +109,31 @@
 
                                 <div id="horario-trabalho">
                                     @foreach($funcionario->funcionario->horarios as $horario)
-                                    <div class="row">
-                                        <div class="col-md-2 form-group">
-                                            <label for="">Dia</label>
-                                            <input type="text" readonly class="form-control" value="{{ $horario->dia }}">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <label for="">Dia</label>
+                                                <input disabled type="text" readonly class="form-control" value="{{ $horario->dia }}">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <label for="">Início</label>
+                                                <input disabled value="{{ $horario->inicio ?? '' }}" type="time" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <label for="">Início almoço</label>
+                                                <input disabled value="{{ $horario->inicio_almoco ?? '' }}" type="time" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <label for="">Fim almoço</label>
+                                                <input disabled value="{{ $horario->fim_almoco ?? '' }}" type="time" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <label for="">Fim</label>
+                                                <input disabled value="{{ $horario->fim ?? '' }}" type="time" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+                                                <button type="button" id="{{ $horario->id }}" style="margin-top: 25px" class="remove-horario btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </div>
                                         </div>
-                                        <div class="col-md-2 form-group">
-                                            <label for="">Início</label>
-                                            <input value="{{ $horario->inicio ?? '' }}" type="time" class="form-control">
-                                        </div>
-                                        <div class="col-md-2 form-group">
-                                            <label for="">Início almoço</label>
-                                            <input value="{{ $horario->inicio_almoco ?? '' }}" type="time" class="form-control">
-                                        </div>
-                                        <div class="col-md-2 form-group">
-                                            <label for="">Fim almoço</label>
-                                            <input value="{{ $horario->fim_almoco ?? '' }}" type="time" class="form-control">
-                                        </div>
-                                        <div class="col-md-2 form-group">
-                                            <label for="">Fim</label>
-                                            <input value="{{ $horario->fim ?? '' }}" type="time" class="form-control">
-                                        </div>
-                                        <div class="col-md-2 form-group">
-                                            <button type="button" id="{{ $horario->id }}" style="margin-top: 25px" class="remove-horario btn btn-danger"><i class="fa fa-trash"></i></button>
-                                        </div>
-                                    </div>
                                     @endforeach
 
                                 </div>

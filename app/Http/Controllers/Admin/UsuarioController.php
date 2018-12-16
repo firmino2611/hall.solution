@@ -37,7 +37,11 @@ class UsuarioController extends Controller
                 return redirect()->route('admin.index');
             }
         }else{
-            return 'usuario invalido';
+            \Session::flash('alerta', array(
+                'class' =>  'danger',
+                'mensagem' => 'Usuário inválido'
+            ));
+            return redirect()->route('login');
         }
 
     }

@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-    <li><a href="{{ route('admin.index') }}">
+    <li><a style="color: purple" href="{{ route('admin.index') }}">
         <em class="fa fa-home"></em>
     </a></li>
     @foreach($itens as $item)
